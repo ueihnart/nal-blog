@@ -23,7 +23,7 @@ export const Blog = () => {
       <div className="jumbotron my-5">
         <h1 className="display-4">{blog.data.title}</h1>
         <div className="d-flex justify-content-center w-100">
-          <img src={blog.data.image} alt={blog.data.title} className="w-70" />
+          <img src={blog.data.image} alt={blog.data.title} style={{ width: "80%" }} />
         </div>
         <hr />
         {blog?.data?.createdAt && <p className="lead">{moment(blog.data.createdAt).format("YYYY/MM/DD HH:mm")}</p>}
