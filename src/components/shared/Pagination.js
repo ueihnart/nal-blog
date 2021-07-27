@@ -1,72 +1,37 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { routes } from "../../routes";
 
-export const Pagination = () => {
+export const Pagination = (props) => {
+  const { onChangePage, total, limit, page } = props;
+  const pages = Math.ceil(total / limit);
+
   return (
     <nav aria-label="...">
       <ul className="pagination">
-        <li className="page-item disabled">
-          <Link
-            className="page-link "
-            to={{
-              pathname: routes.home,
-              search: `?page=${1}`,
-              state: { fromDashboard: true },
-            }}
-            tabIndex="-1"
-            aria-disabled="true"
-          >
+        <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
+          <button className="page-link" onClick={() => onChangePage(page - 1)}>
             Previous
-          </Link>
+          </button>
         </li>
-        <li className="page-item active">
-          <Link
-            className="page-link active"
-            to={{
-              pathname: routes.home,
-              search: `?page=${1}`,
-              state: { fromDashboard: true },
-            }}
-          >
-            1
-          </Link>
-        </li>
-        <li className="page-item" aria-current="page">
-          <Link
-            className="page-link"
-            to={{
-              pathname: routes.home,
-              search: `?page=${2}`,
-              state: { fromDashboard: true },
-            }}
-          >
-            2
-          </Link>
-        </li>
-        <li className="page-item">
-          <Link
-            className="page-link"
-            to={{
-              pathname: routes.home,
-              search: `?page=${3}`,
-              state: { fromDashboard: true },
-            }}
-          >
-            3
-          </Link>
-        </li>
-        <li className="page-item">
-          <Link
-            className="page-link"
-            to={{
-              pathname: routes.home,
-              search: `?page=${1}`,
-              state: { fromDashboard: true },
-            }}
-          >
+        {Array.from({ length: pages }, (_, i) => i + 1).map((item) => {
+          if (Math.abs(page - item) === 3)
+            return (
+              <li className={`page-item disabled`} key={item}>
+                <button className={"page-link"}>...</button>
+              </li>
+            );
+          if (Math.abs(page - item) > 3) return null;
+          return (
+            <li className={`page-item ${item === page ? "active" : ""}`} key={item}>
+              <button className={"page-link"} onClick={() => onChangePage(item)}>
+                {item}
+              </button>
+            </li>
+          );
+        })}
+        <li className={`page-item ${page === pages ? "disabled" : ""}`}>
+          <button className="page-link" onClick={() => onChangePage(page + 1)}>
             Next
-          </Link>
+          </button>
         </li>
       </ul>
     </nav>

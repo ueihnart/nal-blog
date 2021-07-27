@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -13,7 +14,8 @@ export const BlogList = (props) => {
               <Link to={`/blog/${blog.id}`}>
                 <h5 className="mt-0 mb-1">{blog.title}</h5>
               </Link>
-              {blog.content}
+              <small>{moment(blog.createdAt).format("YYYY/MM/DD HH:mm")}</small>
+              <p>{blog.content}</p>
             </div>
           </li>
         );

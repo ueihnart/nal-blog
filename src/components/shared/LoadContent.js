@@ -8,9 +8,12 @@ export const LoadContent = (props) => {
   switch (status) {
     case STATUS_DATA.FAILURE:
       return <FailedToLoad error={error?.response.statusText} />;
-    case STATUS_DATA.REQUEST:
-      return <Loader />;
     default:
-      return <>{children}</>;
+      return (
+        <>
+          {status === STATUS_DATA.REQUEST && <Loader />}
+          {children}
+        </>
+      );
   }
 };
