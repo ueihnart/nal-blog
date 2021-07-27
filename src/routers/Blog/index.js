@@ -17,6 +17,7 @@ export const Blog = () => {
       dispatch(getBlog.getBlogClearData());
     };
   }, [dispatch, id]);
+  console.log(blog);
   return (
     <LoadContent status={blog.state} error={blog.error}>
       <div className="jumbotron my-5">
@@ -25,7 +26,7 @@ export const Blog = () => {
           <img src={blog.data.image} alt={blog.data.title} className="w-70" />
         </div>
         <hr />
-        <p className="lead">{moment(blog.createdAt).format("YYYY/MM/DD HH:mm")}</p>
+        {blog?.data?.createdAt && <p className="lead">{moment(blog.data.createdAt).format("YYYY/MM/DD HH:mm")}</p>}
         <p className="lead">{blog.data.content}</p>
         <div className="d-flex justify-content-end">
           <Link className="btn btn-primary" to={`/`}>
