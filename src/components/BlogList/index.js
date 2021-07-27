@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 export const BlogList = (props) => {
   const { blogs } = props;
-  console.log(blogs);
   return (
     <ul className="list-unstyled">
       {blogs.map((blog) => {

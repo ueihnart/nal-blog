@@ -3,7 +3,9 @@ export const FailedToLoad = ({ error }) => {
 
   return (
     <div className="text-center py-5">
-      <i class="bi bi-exclamation-triangle text-danger"></i>
+      <div style={{ fontSize: "70px" }}>
+        <i className="bi bi-exclamation-triangle text-danger"></i>
+      </div>
       <div className="text-danger my-3">
         <code className="border-bottom">{message}</code>
       </div>

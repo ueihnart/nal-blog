@@ -1,6 +1,6 @@
 import axiosClient from "./axiosClient";
 
-const url = "/blog";
+const url = "/blogs";
 
 const blogApi = {
   index: (params) => axiosClient.get(url, { params: params }),

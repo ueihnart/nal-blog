@@ -9,7 +9,6 @@ import { blogsState$ } from "../../redux/selectors";
 export const Home = () => {
   const dispatch = useDispatch();
   const blogs = useSelector(blogsState$);
-  console.log(blogs);
   useEffect(() => {
     dispatch(getBlogs.getBlogsRequest());
     return () => {};
