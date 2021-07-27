@@ -10,7 +10,13 @@ export const BlogList = (props) => {
       {blogs.map((blog) => {
         return (
           <li className="media m-2" key={blog.id}>
-            <img className="mr-3" width="100px" src={blog.image} alt={blog.title} />
+            <Link
+              to={{
+                pathname: `${routes.blog}`.replace(":id", blog.id),
+              }}
+            >
+              <img className="mr-3" width="100px" src={blog.image} alt={blog.title} />
+            </Link>
             <div className="media-body">
               <Link
                 to={{
