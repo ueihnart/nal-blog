@@ -43,7 +43,7 @@ export const Home = () => {
       case ACTIONS_REDUCE.SEARCH_DATA:
         const _searchData = [...blogs.data].filter((item) => toSlug(item.title).includes(toSlug(action.payload)) || toSlug(item.createdAt).includes(toSlug(action.payload)));
         console.log(_searchData);
-        return { ...state, data: _searchData, pageData: paginatedItems(_searchData, 1, state.limit), total: _searchData.length, searchData: action.payload };
+        return { ...state, data: _searchData, pageData: paginatedItems(_searchData, 1, state.limit), total: _searchData.length, page: 1, searchData: action.payload };
       default:
         return state;
     }
