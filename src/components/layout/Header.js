@@ -19,11 +19,6 @@ export const Header = () => {
                 Home <span className="sr-only">(current)</span>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to={routes.blog}>
-                Blog
-              </Link>
-            </li>
           </ul>
         </div>
       </div>

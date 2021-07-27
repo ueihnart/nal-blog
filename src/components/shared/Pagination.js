@@ -3,7 +3,7 @@ import React from "react";
 export const Pagination = (props) => {
   const { onChangePage, total, limit, page } = props;
   const pages = Math.ceil(total / limit);
-
+  if (pages === 0) return <div className="text-center">No content</div>;
   return (
     <nav aria-label="...">
       <ul className="pagination">

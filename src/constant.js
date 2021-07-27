@@ -10,4 +10,9 @@ export const INIT_STATE = {
     error: null,
     data: [],
   },
+  blog: {
+    status: STATUS_DATA.IDE,
+    error: null,
+    data: {},
+  },
 };

@@ -6,3 +6,10 @@ export const getBlogs = createActions({
   getBlogsSuccess: (payload) => payload,
   getBlogsFailure: (error) => error,
 });
+
+export const getBlog = createActions({
+  getBlogRequest: (id) => id,
+  getBlogSuccess: (payload) => payload,
+  getBlogFailure: (error) => error,
+  getBlogClearData: undefined,
+});
